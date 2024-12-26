@@ -6,7 +6,7 @@ import { datas, FeatureCollection } from '../data/capitals';
 @Injectable({
     providedIn: 'root'
 })
-export class MarkerService {
+export class PopupService {
     capitals: FeatureCollection[] = datas;
 
     constructor() {
