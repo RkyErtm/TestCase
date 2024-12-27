@@ -2,6 +2,8 @@ interface Properties {
     state: string;
     name: string;
     population: number;
+    temperature: number;
+    humidity: number;
 }
 
 interface Geometry {

@@ -3,7 +3,7 @@ import * as L from 'leaflet';
 import { MarkerService } from '../services/marker.service';
 import { SharedModule } from './shared.module';
 import { CapitalService } from '../services/capital.service';
-import { Capital } from '../models/capital';
+import { Capital, Feature } from '../models/capital';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -27,7 +27,8 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class AppComponent implements AfterViewInit {
   private map: any;
-  capitals: Capital[] = [];
+  capitals: Feature[] = [];
+
   private initMap(): void {
     this.map = L.map('map', {
       center: [32.8597, 39.9334],
@@ -48,10 +49,11 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.getCapitals();
     this.markerService.makeCapitalMarkers(this.map);
   }
 
   getCapitals() {
-    this.capitalService.getCapitals().subscribe(res => { this.capitals = res; })
+    this.capitalService.getCapitals().subscribe((res: Capital) => { this.capitals = res?.features; console.log('caps:', this.capitals) })
   }
 }

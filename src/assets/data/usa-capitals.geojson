@@ -1,101 +1,118 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [32.8597, 39.9334]
-          },
-          "properties": {
-              "state": "Ankara",
-              "name": "Ankara",
-              "population": 5445000
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [28.9784, 41.0082]
-          },
-          "properties": {
-              "state": "İstanbul",
-              "name": "İstanbul",
-              "population": 15460000
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [27.1428, 38.4237]
-          },
-          "properties": {
-              "state": "İzmir",
-              "name": "İzmir",
-              "population": 4325000
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [30.6956, 36.8969]
-          },
-          "properties": {
-              "state": "Antalya",
-              "name": "Antalya",
-              "population": 2426356
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [32.4846, 37.8746]
-          },
-          "properties": {
-              "state": "Konya",
-              "name": "Konya",
-              "population": 2232374
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [29.0611, 40.1826]
-          },
-          "properties": {
-              "state": "Bursa",
-              "name": "Bursa",
-              "population": 3056120
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [35.3213, 37.0025]
-          },
-          "properties": {
-              "state": "Adana",
-              "name": "Adana",
-              "population": 2237940
-          }
-      },
-      {
-          "type": "Feature",
-          "geometry": {
-              "type": "Point",
-              "coordinates": [39.9208, 41.0053]
-          },
-          "properties": {
-              "state": "Trabzon",
-              "name": "Trabzon",
-              "population": 807903
-          }
-      }
-  ]
-}
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [32.8597, 39.9334]
+            },
+            "properties": {
+                "state": "Ankara",
+                "name": "Ankara",
+                "population": 5445000,
+                "temperature": 32,
+                "humidity": 22
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [28.9784, 41.0082]
+            },
+            "properties": {
+                "state": "İstanbul",
+                "name": "İstanbul",
+                "population": 15460000,
+                "temperature": 30,
+                "humidity": 65
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [27.1428, 38.4237]
+            },
+            "properties": {
+                "state": "İzmir",
+                "name": "İzmir",
+                "population": 4325000,
+                "temperature": 34,
+                "humidity": 50
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [30.6956, 36.8969]
+            },
+            "properties": {
+                "state": "Antalya",
+                "name": "Antalya",
+                "population": 2426356,
+                "temperature": 35,
+                "humidity": 40
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [32.4846, 37.8746]
+            },
+            "properties": {
+                "state": "Konya",
+                "name": "Konya",
+                "population": 2232374,
+                "temperature": 28,
+                "humidity": 30
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [29.0611, 40.1826]
+            },
+            "properties": {
+                "state": "Bursa",
+                "name": "Bursa",
+                "population": 3056120,
+                "temperature": 33,
+                "humidity": 55
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.3213, 37.0025]
+            },
+            "properties": {
+                "state": "Adana",
+                "name": "Adana",
+                "population": 2237940,
+                "temperature": 36,
+                "humidity": 45
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [39.9208, 41.0053]
+            },
+            "properties": {
+                "state": "Trabzon",
+                "name": "Trabzon",
+                "population": 807903,
+                "temperature": 29,
+                "humidity": 70
+            }
+        }
+    ]
+  }
+  

@@ -1,3 +1,16 @@
+@use '../styles.scss' as *;
+
+// mixin örnek
+@mixin rounded($unit) {
+  border-radius: $unit;
+}
+
+@mixin media($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
 // nav css
 nav {
   background-color: #fff !important;
@@ -12,40 +25,92 @@ nav {
     width: 100%;
   }
 
-  .search-input {
-    border-radius: 20px !important;
-  }
-
-  .icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 99;
-    cursor: pointer;
-
-    :active {
-      color: gray;
-    }
-
-    span {
-      background-color: #fff;
-      border: none;
-    }
-  }
-
+  // right side css
   .search-width {
     width: 50%;
+
+    .search-input {
+      border-radius: 20px !important;
+    }
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
+      cursor: pointer;
+
+      :active {
+        color: gray;
+      }
+
+      span {
+        background-color: #fff;
+        border: none;
+      }
+    }
+
   }
 
-  .card {
+  .card-container {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
+    @include rounded(10px);
+    max-height: 610px;
+    height: 610px;
+    overflow: auto;
+
+    .card {
+      background-color: $light;
+      height: 160px;
+      @include rounded(10px);
+      padding: 15px;
+      border: none;
+
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        color: $dark;
+      }
+
+      span {
+        color: $gray;
+        font-size: 12px;
+      }
+
+      .degree,
+      .percentage {
+        font-size: 20px;
+        font-weight: 500;
+        color: $dark;
+      }
+
+      .temperature,
+      .humidity {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .date {
+        font-size: 10px;
+        color: $dark;
+      }
+    }
   }
 }
 
+.flex-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 //responsive css
-@media (max-width: 576px) {
+@include media(576px) {
   .search-width {
     width: 100% !important;
   }
@@ -55,7 +120,7 @@ nav {
   }
 }
 
-@media (min-width: 992px) {
+@include media(992px) {
   .search-width {
     width: 50% !important;
   }
