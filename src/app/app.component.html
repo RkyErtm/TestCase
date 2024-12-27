@@ -1,18 +1,18 @@
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid mx-5">
+  <div class="container-fluid mx-lg-5 d-flex justify-content-between flex-row">
     <a class="navbar-brand" href="#">
       <img src="../assets/imgs/logo.png" alt="Logo" width="200" height="40" class="d-inline-block align-text-top">
     </a>
-    <div class="d-flex justify-content-end gap-3">
+    <div class="d-flex gap-3">
       <img src="../assets/imgs/icons/notification.svg" width="30" alt="">
       <img src="../assets/imgs/icons/person.svg" width="25" alt="">
       <img src="../assets/imgs/icons/menu.svg" width="25" alt="">
     </div>
   </div>
 </nav>
-<div class="content m-5">
-  <div class="row mx-5">
-    <div class="col">
+<div class="content m-sm-4 m-lg-5">
+  <div class="row mx-lg-5">
+    <div class="col-md col-lg-7">
       <h4 class="py-2">Lorem Ipsum</h4>
       <div class="map-container">
         <div class="map-frame">
@@ -20,18 +20,25 @@
         </div>
       </div>
     </div>
-    <div class="col d-flex flex-column align-items-center">
-      <div class="d-flex flex-row w-100 justify-content-end">
-        <div class="input-group mt-2 w-50">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Amount (to the nearest dollar)">
-            <div class="input-group-append">
-              <span class="input-group-text">.00</span>
-            </div>
+    <div class="col-md d-flex flex-column align-items-center">
+      <div class="w-100 d-flex flex-row justify-content-end">
+        <div class="input-group mt-2 search-width">
+          <input type="text" class="form-control search-input" placeholder="Search" aria-label="search">
+          <div class="input-group-append icon">
+            <span class="input-group-text">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
           </div>
         </div>
       </div>
-      <div class="card w-100 h-100 my-2"></div>
+      <div class="card w-100 h-100 my-2 p-3">
+        <div class="card-wrapper">
+
+        </div>
+      </div>
     </div>
+
+
+
   </div>
 </div>

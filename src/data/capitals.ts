@@ -1,24 +1,24 @@
-interface Geometry {
-    type: string;
-    coordinates: number[];
-}
-
 interface Properties {
     state: string;
     name: string;
     population: number;
 }
 
-interface Feature {
+interface Geometry {
+    type: string;
+    coordinates: number[];
+}
+export interface Feature {
     type: string;
     geometry: Geometry;
     properties: Properties;
 }
 
-export interface FeatureCollection {
+interface FeatureCollection {
     type: string;
     features: Feature[];
 }
+//Tek bir yerden data çektiğim için model'i buraya yazdım. Normalde modeller içinde ayrı klasörde çalışırım.
 
 export const datas: FeatureCollection[] = [
     {
@@ -43,8 +43,8 @@ export const datas: FeatureCollection[] = [
                     coordinates: [28.9784, 41.0082]
                 },
                 properties: {
-                    state: "Istanbul",
-                    name: "Istanbul",
+                    state: "İstalbul",
+                    name: "İstanbul",
                     population: 15460000
                 }
             },
@@ -55,8 +55,8 @@ export const datas: FeatureCollection[] = [
                     coordinates: [27.1428, 38.4237]
                 },
                 properties: {
-                    state: "Izmir",
-                    name: "Izmir",
+                    state: "İzmir",
+                    name: "İzmir",
                     population: 4325000
                 }
             },

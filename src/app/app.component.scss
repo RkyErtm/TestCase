@@ -8,13 +8,55 @@ nav {
   background-color: #fff;
 
   #map {
-    height: 700px;
-    width: 1079px;
+    height: 600px;
+    width: 100%;
+  }
 
+  .search-input {
+    border-radius: 20px !important;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+    cursor: pointer;
+
+    :active {
+      color: gray;
+    }
+
+    span {
+      background-color: #fff;
+      border: none;
+    }
+  }
+
+  .search-width {
+    width: 50%;
   }
 
   .card {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
+  }
+}
+
+//responsive css
+@media (max-width: 576px) {
+  .search-width {
+    width: 100% !important;
+  }
+
+  #map {
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .search-width {
+    width: 50% !important;
   }
 }
