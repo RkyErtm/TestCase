@@ -1,21 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
-import { datas, Feature } from '../data/capitals';
+import { Capital } from '../models/capital';
 
 @Injectable({
     providedIn: 'root'
 })
 export class MarkerService {
-    public capitals: Feature[] = datas[0].features;
+    capitals: string = '/assets/data/usa-capitals.geojson';
+
+    constructor(private http: HttpClient) {
+    }
 
     makeCapitalMarkers(map: L.Map): void {
-        for (const c of this.capitals) {
-            const lon = c.geometry.coordinates[0];
-            const lat = c.geometry.coordinates[1];
-            const circle = L.marker([lat, lon]);
-            //markerları yerleştirdik.
-            circle.addTo(map);
+        this.http.get<Capital>(this.capitals).subscribe((res: Capital) => {
+            for (const c of res?.features) {
+                const lon = c.geometry.coordinates[0];
+                const lat = c.geometry.coordinates[1];
+                const marker = L.marker([lat, lon]);
 
-        }
+                marker.addTo(map);
+            }
+        });
     }
 }
