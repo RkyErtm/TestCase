@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-$primary: #0060C0;
+$primary: #007DFC;
+$darkBlue: #0060C0;
 $light: #F2F9FF;
 $white: #fff;
 $dark: #000;
@@ -9,4 +10,71 @@ $light-gray: #B3B3B3;
 
 .content {
     font-family: Poppins;
+}
+
+.fw-bold {
+    font-weight: 500 !important;
+}
+
+// pop up css
+.popup-container {
+    padding: 5px;
+    font-family: Poppins;
+    width: 220px;
+
+    .popup-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .popup-state {
+        font-size: 14px;
+        color: $gray;
+    }
+
+    .popup-mid,
+    .popup-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .popup-temp,
+    .popup-humidity {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .popup-degree,
+    .popup-percentage {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .popup-btn {
+        font-size: 14px;
+        text-align: center;
+        color: $darkBlue;
+        background-color: $light;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        padding: 5px;
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+        transition: background-color 0.2s ease;
+
+
+        :active {
+            border: 1px solid $light-gray;
+        }
+    }
+
+    .popup-btn:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
 }

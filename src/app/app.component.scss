@@ -20,97 +20,93 @@ nav {
 .content {
   background-color: #fff;
 
-  h4 {
-    font-weight: 500;
-  }
-
   #map {
     height: 600px;
     width: 100%;
   }
 
-  // right side css
-  .search-width {
-    width: 50%;
+  //widget area css
+  .widget-area {
+    .search-width {
+      width: 50%;
 
-    .search-input {
-      border-radius: 20px !important;
-    }
+      .search-input {
+        border-radius: 20px !important;
+        padding: 8px 15px;
+      }
 
-    ::placeholder {
-      color: $light-gray !important;
-    }
+      ::placeholder {
+        color: $light-gray !important;
+      }
 
-    .icon {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 99;
-      cursor: pointer;
+      .search-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 99;
+        cursor: pointer;
 
-      span {
-        background-color: #fff;
-        border: none;
+        span {
+          background-color: #fff;
+          border: none;
 
-        i {
-          color: $light-gray;
+          i {
+            color: $light-gray;
+          }
         }
       }
     }
 
-  }
-
-  .card-container {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    border: none;
-    @include rounded(10px);
-    max-height: 610px;
-    height: 610px;
-    overflow: auto;
-
-    .item-gap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .card {
-      background-color: $light;
-      height: 160px;
-      @include rounded(10px);
-      padding: 15px;
+    // card css
+    .card-container {
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
       border: none;
+      @include rounded(10px);
+      max-height: 600px;
+      height: 600px;
+      overflow: auto;
 
-      .title {
-        font-size: 14px;
-        font-weight: 500;
-        color: $dark;
-      }
+      .card {
+        background-color: $light;
+        height: 160px;
+        @include rounded(10px);
+        padding: 15px;
+        border: none;
 
-      span {
-        color: $gray;
-        font-size: 12px;
-      }
+        .card-left {
+          .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: $dark;
+          }
 
-      .degree,
-      .percentage {
-        font-size: 20px;
-        font-weight: 500;
-        color: $dark;
-      }
+          span {
+            color: $gray;
+            font-size: 12px;
+          }
 
-      .temperature,
-      .humidity {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2px;
-      }
+        }
 
-      .date {
-        font-size: 10px;
-        color: $dark;
+        .card-degree,
+        .card-percentage {
+          font-size: 20px;
+          font-weight: 500;
+          color: $dark;
+        }
+
+        .card-temperature,
+        .card-humidity {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 2px;
+        }
+
+        .card-date {
+          font-size: 10px;
+          color: $dark;
+        }
       }
     }
   }
@@ -121,14 +117,28 @@ nav {
     justify-content: space-between;
     align-items: center;
   }
-}
 
+  //scroll css
+  ::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+    background-color: $light;
+  }
+
+
+}
 
 
 //responsive css
 @include media(576px) {
   .search-width {
     width: 100% !important;
+    margin-top: 10px;
   }
 
   #map {
