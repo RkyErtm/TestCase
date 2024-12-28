@@ -39,12 +39,19 @@
           @for (item of filteredCapitals; track item) {
           <div class="col-12 col-md-4 col-lg-6">
             <div class="card">
-              <div class="flex-item">
+              <div class="flex-item mb-2">
                 <div class="card-left">
                   <div class="card-title">{{item?.properties?.name}}</div>
                   <span>{{item?.properties?.state}}</span>
                 </div>
-                <img width="30" src="../assets/imgs/icons/green-status.svg" alt="">
+                <img width="30" [src]="'../assets/imgs/icons/' + 
+                        (item?.properties?.status === 1 
+                          ? 'red' 
+                          : item?.properties?.status === 2 
+                          ? 'yellow' 
+                          : 'green') + '-status.svg'" alt="status icon">
+
+
               </div>
               <div class="d-flex gap-3">
                 <div class="card-temperature">
@@ -56,7 +63,7 @@
                   <div class="card-percentage">%{{item?.properties?.humidity}}</div>
                 </div>
               </div>
-              <div class="flex-item">
+              <div class="flex-item mt-2">
                 <div class="card-date">10/03/2024 08:12</div>
                 <img width="32" src="../assets/imgs/icons/ellipse-icon.svg" alt="">
               </div>

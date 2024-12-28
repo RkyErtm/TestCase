@@ -4,6 +4,7 @@ interface Properties {
     population: number;
     temperature: number;
     humidity: number;
+    status: number;
 }
 
 interface Geometry {

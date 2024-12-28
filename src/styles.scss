@@ -46,7 +46,7 @@ $light-gray: #B3B3B3;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
+        gap: 5px;
     }
 
     .popup-degree,
@@ -56,7 +56,7 @@ $light-gray: #B3B3B3;
     }
 
     .popup-btn {
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         color: $darkBlue;
         background-color: $light;
@@ -66,15 +66,12 @@ $light-gray: #B3B3B3;
         padding: 5px;
         box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
         transition: background-color 0.2s ease;
-
-
-        :active {
-            border: 1px solid $light-gray;
-        }
+        width: 110px;
     }
 
     .popup-btn:hover {
-        background-color: #007bff;
-        color: #fff;
+
+        background-color: $primary;
+        color: $white;
     }
 }
