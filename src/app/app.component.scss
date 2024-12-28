@@ -20,6 +20,10 @@ nav {
 .content {
   background-color: #fff;
 
+  h4 {
+    font-weight: 500;
+  }
+
   #map {
     height: 600px;
     width: 100%;
@@ -33,6 +37,10 @@ nav {
       border-radius: 20px !important;
     }
 
+    ::placeholder {
+      color: $light-gray !important;
+    }
+
     .icon {
       position: absolute;
       right: 10px;
@@ -41,13 +49,13 @@ nav {
       z-index: 99;
       cursor: pointer;
 
-      :active {
-        color: gray;
-      }
-
       span {
         background-color: #fff;
         border: none;
+
+        i {
+          color: $light-gray;
+        }
       }
     }
 
@@ -60,6 +68,12 @@ nav {
     max-height: 610px;
     height: 610px;
     overflow: auto;
+
+    .item-gap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
 
     .card {
       background-color: $light;
@@ -100,14 +114,16 @@ nav {
       }
     }
   }
+
+  .flex-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-.flex-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 //responsive css
 @include media(576px) {

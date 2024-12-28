@@ -28,6 +28,8 @@ L.Marker.prototype.options.icon = iconDefault;
 export class AppComponent implements AfterViewInit {
   private map: any;
   capitals: Feature[] = [];
+  filteredCapitals: Feature[] = [];
+  searchText: string = '';
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -54,6 +56,23 @@ export class AppComponent implements AfterViewInit {
   }
 
   getCapitals() {
-    this.capitalService.getCapitals().subscribe((res: Capital) => { this.capitals = res?.features; console.log('caps:', this.capitals) })
+    this.capitalService.getCapitals().subscribe((res: Capital) => {
+      this.filteredCapitals = this.capitals = res?.features;
+      console.log('caps:', this.capitals)
+    })
   }
+
+  onSearch() {
+    console.log(this.searchText);
+    const lowerText = this.searchText.toLowerCase();
+    console.log(lowerText);
+
+    this.filteredCapitals = this.capitals.filter(x => {
+      const capitalLowerText = x?.properties?.name.toLowerCase();
+      return capitalLowerText.includes(lowerText);
+    });
+    console.log(this.filteredCapitals);
+
+  }
+
 }

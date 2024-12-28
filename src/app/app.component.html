@@ -20,10 +20,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md d-flex flex-column align-items-center">
-      <div class="w-100 d-flex flex-row justify-content-end">
+    <div class="col-lg d-flex flex-column align-items-center">
+      <div class="w-100 d-flex flex-row justify-content-end mb-2">
         <div class="input-group mt-2 search-width">
-          <input type="text" class="form-control search-input" placeholder="Search" aria-label="search">
+          <input type="text" [(ngModel)]="searchText" (ngModelChange)="onSearch()" class="form-control search-input"
+            placeholder="Search" aria-label="search">
           <div class="input-group-append icon">
             <span class="input-group-text">
               <i class="fa-solid fa-magnifying-glass"></i>
@@ -31,42 +32,40 @@
           </div>
         </div>
       </div>
-      <div class="card-container w-100 h-100 my-2 p-3">
-
-        <div class="row p-3 d-flex justify-content-around">
-          @for (item of capitals; track item) {
-
-          <div class="col-lg-6 col-sm-12 card g-3 gap-2">
-            <div class="flex-item">
-              <div class="top-left">
-                <div class="title">Sıcaklık ve Nem Sensörü</div>
-                <span>1 nolu kapı</span>
+      <div class="card-container w-100 my-2 p-3">
+        <div class="row g-2 gx-2">
+          @for (item of filteredCapitals; track item) {
+          <div class="col-12 col-md-6">
+            <div class="card">
+              <div class="flex-item">
+                <div class="top-left">
+                  <div class="title">{{item?.properties?.name}}</div>
+                  <span>{{item?.properties?.state}}</span>
+                </div>
+                <img width="30" src="../assets/imgs/icons/green-status.svg" alt="">
               </div>
-              <img width="30" src="../assets/imgs/icons/green-status.svg" alt="">
-            </div>
-            <div class="d-flex gap-3">
-              <div class="temperature">
-                <img width="24" src="../assets/imgs/icons/temperature.svg" alt="">
-                <div class="degree">{{item?.properties?.temperature}} &deg;C</div>
+              <div class="d-flex gap-3">
+                <div class="temperature">
+                  <img width="24" src="../assets/imgs/icons/temperature.svg" alt="">
+                  <div class="degree">{{item?.properties?.temperature}} &deg;C</div>
+                </div>
+                <div class="humidity">
+                  <img width="24" src="../assets/imgs/icons/humidity.svg" alt="">
+                  <div class="percentage">%{{item?.properties?.humidity}}</div>
+                </div>
               </div>
-              <div class="humidity">
-                <img width="24" src="../assets/imgs/icons/humidity.svg" alt="">
-                <div class="percentage">%{{item?.properties?.humidity}}</div>
+              <div class="flex-item">
+                <div class="date">10/03/2024 08:12</div>
+                <img width="32" src="../assets/imgs/icons/ellipse-icon.svg" alt="">
               </div>
             </div>
-            <div class="flex-item">
-              <div class="date">10/03/2024 08:12</div>
-              <img width="32" src="../assets/imgs/icons/ellipse-icon.svg" alt="">
-            </div>
-          </div>
-
-          }
+          </div>}
         </div>
+
+
+
       </div>
 
     </div>
-
-
-
   </div>
 </div>
