@@ -8,6 +8,7 @@
                 "coordinates": [32.8597, 39.9334]
             },
             "properties": {
+                "id": 1,
                 "state": "Ankara",
                 "name": "Ankara",
                 "population": 5445000,
@@ -23,6 +24,7 @@
                 "coordinates": [28.9784, 41.0082]
             },
             "properties": {
+                "id": 2,
                 "state": "İstanbul",
                 "name": "İstanbul",
                 "population": 15460000,
@@ -38,6 +40,7 @@
                 "coordinates": [27.1428, 38.4237]
             },
             "properties": {
+                "id": 3,
                 "state": "İzmir",
                 "name": "İzmir",
                 "population": 4325000,
@@ -53,6 +56,7 @@
                 "coordinates": [30.6956, 36.8969]
             },
             "properties": {
+                "id": 4,
                 "state": "Antalya",
                 "name": "Antalya",
                 "population": 2426356,
@@ -68,6 +72,7 @@
                 "coordinates": [32.4846, 37.8746]
             },
             "properties": {
+                "id": 5,
                 "state": "Konya",
                 "name": "Konya",
                 "population": 2232374,
@@ -83,6 +88,7 @@
                 "coordinates": [29.0611, 40.1826]
             },
             "properties": {
+                "id": 6,
                 "state": "Bursa",
                 "name": "Bursa",
                 "population": 3056120,
@@ -98,6 +104,7 @@
                 "coordinates": [35.3213, 37.0025]
             },
             "properties": {
+                "id": 7,
                 "state": "Adana",
                 "name": "Adana",
                 "population": 2237940,
@@ -113,6 +120,7 @@
                 "coordinates": [39.9208, 41.0053]
             },
             "properties": {
+                "id": 8,
                 "state": "Trabzon",
                 "name": "Trabzon",
                 "population": 807903,

@@ -67,12 +67,26 @@ nav {
       height: 600px;
       overflow: auto;
 
+      .frame {
+        height: 560px;
+        width: 100%;
+        position: relative;
+        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
       .card {
         background-color: $light;
         height: 160px;
         @include rounded(10px);
         padding: 15px;
         border: none;
+
+        .active {
+          border: 1px solid $primary !important;
+        }
+
 
         .card-left {
           .card-title {
@@ -113,6 +127,11 @@ nav {
     }
   }
 
+  .active {
+    outline: 1px solid $primary !important;
+  }
+
+
   .flex-item {
     display: flex;
     flex-direction: row;
@@ -138,6 +157,10 @@ nav {
 
 //responsive css
 @include media(576px) {
+  .content {
+    margin: 15px;
+  }
+
   .search-width {
     width: 100% !important;
     margin-top: 10px;
@@ -145,11 +168,5 @@ nav {
 
   #map {
     height: 200px !important;
-  }
-}
-
-@include media(992px) {
-  .search-width {
-    width: 50% !important;
   }
 }

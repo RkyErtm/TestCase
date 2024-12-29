@@ -20,8 +20,8 @@
         </div>
       </div>
     </div>
-    <div class="col-xl d-flex flex-column align-items-center widget-area">
-      <div class="w-100 d-flex flex-row justify-content-end mb-1">
+    <div class=" col-xl d-flex flex-column align-items-center widget-area">
+      <div class=" w-100 d-flex flex-row justify-content-end mb-1">
         <div class="input-group mt-2 search-width">
           <input type="text" [(ngModel)]="searchText" (ngModelChange)="onSearch()" class="form-control search-input"
             placeholder="Search" aria-label="search">
@@ -34,42 +34,42 @@
       </div>
       <div class="card-container w-100 my-2 p-3">
         @if(filteredCapitals.length>0){
-
-        <div class="row g-3 gx-3 p-3">
-          @for (item of filteredCapitals; track item) {
-          <div class="col-12 col-md-4 col-lg-6">
-            <div class="card">
-              <div class="flex-item mb-2">
-                <div class="card-left">
-                  <div class="card-title">{{item?.properties?.name}}</div>
-                  <span>{{item?.properties?.state}}</span>
-                </div>
-                <img width="30" [src]="'../assets/imgs/icons/' + 
+        <div class="frame">
+          <div class="row g-3 gx-3 p-3">
+            @for (item of filteredCapitals; track item) {
+            <div class="col-12 col-md-4 col-lg-6">
+              <div class="card" (click)="openPopup(item)" [ngClass]="item?.properties?.id==popupDataId ? 'active': '' ">
+                <div class="flex-item mb-2">
+                  <div class="card-left">
+                    <div class="card-title">{{item?.properties?.name}}</div>
+                    <span>{{item?.properties?.state}}</span>
+                  </div>
+                  <img width="30" [src]="'../assets/imgs/icons/' + 
                         (item?.properties?.status === 1 
                           ? 'red' 
                           : item?.properties?.status === 2 
                           ? 'yellow' 
                           : 'green') + '-status.svg'" alt="status icon">
-
-
-              </div>
-              <div class="d-flex gap-3">
-                <div class="card-temperature">
-                  <img width="24" src="../assets/imgs/icons/temperature.svg" alt="">
-                  <div class="card-degree">{{item?.properties?.temperature}} &deg;C</div>
                 </div>
-                <div class="card-humidity">
-                  <img width="24" src="../assets/imgs/icons/humidity.svg" alt="">
-                  <div class="card-percentage">%{{item?.properties?.humidity}}</div>
+                <div class="d-flex gap-3">
+                  <div class="card-temperature">
+                    <img width="24" src="../assets/imgs/icons/temperature.svg" alt="">
+                    <div class="card-degree">{{item?.properties?.temperature}} &deg;C</div>
+                  </div>
+                  <div class="card-humidity">
+                    <img width="24" src="../assets/imgs/icons/humidity.svg" alt="">
+                    <div class="card-percentage">%{{item?.properties?.humidity}}</div>
+                  </div>
+                </div>
+                <div class="flex-item mt-1">
+                  <div class="card-date">{{item?.properties?.randomDate | date : 'dd/MM/yyyy hh:mm'}}</div>
+                  <img width="32" src="../assets/imgs/icons/ellipse-icon.svg" alt="">
                 </div>
               </div>
-              <div class="flex-item mt-2">
-                <div class="card-date">10/03/2024 08:12</div>
-                <img width="32" src="../assets/imgs/icons/ellipse-icon.svg" alt="">
-              </div>
-            </div>
-          </div>}
+            </div>}
+          </div>
         </div>
+
         }@else{
         <div class="empty-card d-flex flex-column justify-content-center align-items-center">
           <div class="alert alert-warning w-100" role="alert">

@@ -1,10 +1,12 @@
-interface Properties {
+export interface Properties {
+    id: number;
     state: string;
     name: string;
     population: number;
     temperature: number;
     humidity: number;
     status: number;
+    randomDate: string;
 }
 
 interface Geometry {

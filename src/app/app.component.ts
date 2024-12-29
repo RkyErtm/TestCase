@@ -1,9 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as L from 'leaflet';
-import { MarkerService } from '../services/marker.service';
-import { SharedModule } from './shared.module';
-import { CapitalService } from '../services/capital.service';
 import { Capital, Feature } from '../models/capital';
+import { CapitalService } from '../services/capital.service';
+import { MarkerService } from '../services/marker.service';
+import { PopupService } from '../services/popup.service';
+import { SharedModule } from './shared.module';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -30,10 +31,11 @@ export class AppComponent implements AfterViewInit {
   capitals: Feature[] = [];
   filteredCapitals: Feature[] = [];
   searchText: string = '';
+  popupDataId?: number = 0;
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [32.8597, 39.9334],
+      center: [39.925533, 32.866287],
       zoom: 5
     });
 
@@ -45,34 +47,65 @@ export class AppComponent implements AfterViewInit {
     tiles.addTo(this.map);
   }
 
+
   constructor(private markerService: MarkerService,
-    private capitalService: CapitalService
+    private capitalService: CapitalService,
+    private popupService: PopupService
   ) { }
 
   ngAfterViewInit(): void {
     this.initMap();
     this.getCapitals();
     this.markerService.makeCapitalMarkers(this.map);
+    this.popupService.dataId$.subscribe((res: number) => {
+      this.popupDataId = res;
+    });
   }
+
+  //widget tarafından popup açma
+  openPopup(capital: Feature) {
+    const mapInstance = this.popupService.getMapInstance();
+    const popupContent = this.popupService.makeCapitalPopup(capital?.properties);
+
+    //popup açık ise kapat
+    if (this.popupService.getCurrentPopup()?.isOpen()) {
+      const currentPopupDataId = this.popupService.getCurrentPopupDataId();
+      if (currentPopupDataId === capital?.properties?.id) {
+        this.popupService.closePopup();
+        this.popupService.sendDataId(0);
+        return;
+      }
+    }
+
+    const popup = L.popup()
+      .setLatLng([capital?.geometry?.coordinates[1], capital?.geometry?.coordinates[0]])
+      .setContent(popupContent)
+      .openOn(mapInstance);
+
+    this.popupService.setCurrentPopup(popup, capital?.properties?.id);
+    this.popupService.sendDataId(capital?.properties?.id);
+  }
+
 
   getCapitals() {
     this.capitalService.getCapitals().subscribe((res: Capital) => {
-      this.filteredCapitals = this.capitals = res?.features;
-      console.log('caps:', this.capitals)
+      //alfabetik sıralama
+      this.filteredCapitals = this.capitals = res?.features.sort((a: any, b: any) =>
+        a?.properties?.name.localeCompare(b?.properties?.name));
     })
   }
 
   onSearch() {
-    console.log(this.searchText);
+    if (this.popupService.getCurrentPopup()?.isOpen()) {
+      this.popupService.closePopup();
+      this.popupService.sendDataId(0);
+      return;
+    }
     const lowerText = this.searchText.toLowerCase();
-    console.log(lowerText);
-
     this.filteredCapitals = this.capitals.filter(x => {
       const capitalLowerText = x?.properties?.name.toLowerCase();
       return capitalLowerText.includes(lowerText);
     });
-    console.log(this.filteredCapitals);
-
   }
 
 }
